@@ -76,7 +76,7 @@ public class UniqueElement {
 		int a[] = {1,1,2,2,5,5,4,4,9};
 		
 		System.out.println(findUnique(a));
-		
+		System.out.println();
 		System.out.println();
 		System.out.println();
 //		int b[] =     
