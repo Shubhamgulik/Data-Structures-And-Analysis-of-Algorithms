@@ -28,6 +28,7 @@ public class ComplexNumbersMain {
 			// Multiply
 			c1.multiply(c2);
 			c1.print();
+			
 		}
 		
 
