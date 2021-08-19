@@ -88,8 +88,8 @@ public class UniqueElement {
 		System.out.println(findUnique(a));
 		System.out.println();
 		System.out.println();
-//		int b[] =     
 		System.out.println();
+//		int b[] =     
 //		System.out.println(findUnique(a));
 
 	}
