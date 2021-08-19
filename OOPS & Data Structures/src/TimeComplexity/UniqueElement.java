@@ -37,6 +37,16 @@ Sample Input 2:
 Sample Output 2:
 4
 10
+
+Sample Input 2:
+2
+5
+2 4 7 2 7
+9
+1 3 1 3 6 6 7 10 7
+Sample Output 2:
+4
+10
  */
 
 
