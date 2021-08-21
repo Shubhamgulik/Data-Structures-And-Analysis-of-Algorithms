@@ -46,7 +46,7 @@ public class LinkedListUse {
         return length;
 	}
 	
-	//ith Element
+	//Get ith Element
 	
 	public static int ithElement(Node<Integer> head, int i) {
 		Node<Integer> temp1 = head;
@@ -144,6 +144,34 @@ public class LinkedListUse {
 		return head;
 	}
 	
+	public static Node<Integer> delete(Node<Integer> head, int pos){
+		if(pos == 0) {
+			head = head.next;
+			return head;
+		}
+		
+		int index = -1;
+		Node<Integer> prev = head;
+		while(prev.next != null) {
+			
+			
+			index++;
+			if(index == pos-1) {	
+				break;
+			}
+			prev = prev.next;
+			
+		}
+		
+		if(pos > index+1) {
+			return head;
+		}
+		
+		prev.next = prev.next.next;
+//		print(head);
+		return head;
+	}
+	
 	// Main Function
 	
 	public static void main(String[] args) {
@@ -155,7 +183,9 @@ public class LinkedListUse {
 		
 		print(head);
 		
-		head = insert(head,20,20);
+//		head = insert(head,20,20);
+		head = delete(head, 7);
+		System.out.println();
 		print(head);
 //		System.out.println("length "+ length(head));
 //		System.out.println("3rd Element "+ ithElement(head,4) );
