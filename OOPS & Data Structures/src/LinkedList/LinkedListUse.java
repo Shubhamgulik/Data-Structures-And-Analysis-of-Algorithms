@@ -172,6 +172,63 @@ public class LinkedListUse {
 		return head;
 	}
 	
+	//Find index of the node
+	
+	public static int findNode(Node<Integer> head, int n) {
+		int index = -1;
+		Node<Integer> temp = head;
+		
+		while(temp != null) {
+			index++;
+//			System.out.println(temp.data);
+			if(temp.data == n) {
+				return index;
+			}
+			temp = temp.next;
+		}
+		
+		return -1;
+	}
+	
+	
+	
+	// Append Last N nodes to start
+	
+	public static Node<Integer> appendLastNToFirst(Node<Integer> head, int n) {
+		//Your code goes here
+		
+		if(head == null) {
+			return head;
+		}
+		
+		int length = length(head);
+		
+		Node<Integer> temp = head;
+		
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		
+		temp.next = head;
+		
+		temp = head;
+		Node<Integer> newHead = head;
+ 		int i = 0;
+		while(i != length-n) {
+			newHead = temp.next;
+			temp.next = null;
+			i++;
+		}
+		
+		return newHead;
+		
+		
+		
+		
+        
+	}
+	
+	
 	// Main Function
 	
 	public static void main(String[] args) {
@@ -180,13 +237,20 @@ public class LinkedListUse {
 //		Node<Integer> head = createLinkedList();
 //		increment(head);
 		Node<Integer> head = takeInput();
-		
 		print(head);
+		System.out.println();
+		
+		head = appendLastNToFirst(head, 3);
+		System.out.println(head);
+		
+		
+		
+//		System.out.println(findNode(head,5));
 		
 //		head = insert(head,20,20);
-		head = delete(head, 7);
-		System.out.println();
-		print(head);
+//		head = delete(head, 7);
+//		System.out.println();
+//		print(head);
 //		System.out.println("length "+ length(head));
 //		System.out.println("3rd Element "+ ithElement(head,4) );
 //		
