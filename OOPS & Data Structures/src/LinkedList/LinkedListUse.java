@@ -34,7 +34,7 @@ public class LinkedListUse {
 		//Your code goes here
         Node<Integer> temp1 = head;
         int length = 0;
-
+        System.out.println("in length");
         while(temp1 != null){
         	
             length++;
@@ -79,7 +79,7 @@ public class LinkedListUse {
 	public static Node<Integer> takeInput(){
 		
 		Scanner in = new Scanner(System.in);
-		
+		System.out.println("Taking Input");
 		int data = in.nextInt();
 		
 		Node<Integer> head = null;
@@ -91,6 +91,7 @@ public class LinkedListUse {
 				temp = head;
 			}else {
 				temp.next = currnode;
+				System.out.println(temp.data);
 				temp = currnode;
 			}
 			data = in.nextInt();
@@ -202,30 +203,41 @@ public class LinkedListUse {
 		}
 		
 		int length = length(head);
+		System.out.println(length);
 		
 		Node<Integer> temp = head;
+		
+		int i = 0;
+		while(temp!=null) {
+			if(i==length-n-1) {
+				break;
+			}
+			temp = temp.next;
+			i++;
+		}
+		
+		
+		
+		int key = temp.data;
+		System.out.println(key);
+		temp = head;
 		
 		while(temp.next != null) {
 			temp = temp.next;
 		}
-		
+		System.out.println(temp.data);
 		temp.next = head;
-		
 		temp = head;
-		Node<Integer> newHead = head;
- 		int i = 0;
-		while(i != length-n) {
-			newHead = temp.next;
-			temp.next = null;
-			i++;
+		
+		while(temp.data != key) {
+			temp = temp.next;
 		}
 		
+		Node<Integer> newHead = temp.next;
+		
+		temp.next = null;
+ 		
 		return newHead;
-		
-		
-		
-		
-        
 	}
 	
 	
@@ -237,11 +249,13 @@ public class LinkedListUse {
 //		Node<Integer> head = createLinkedList();
 //		increment(head);
 		Node<Integer> head = takeInput();
+		
 		print(head);
 		System.out.println();
 		
-		head = appendLastNToFirst(head, 3);
-		System.out.println(head);
+//		head = appendLastNToFirst(head, 3);
+//		System.out.println(head);
+//		print(head);
 		
 		
 		
