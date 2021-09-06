@@ -6,24 +6,34 @@ public class StackUsingArray {
 	private int top;
 	
 	StackUsingArray(){
-		data = new int[10];
+		data = new int[3];
 		top = -1;
 	}
 
-	public void push(int i) {
-		top++;
-		data[top] = i;
+	public void push(int i) throws StackFullException {
+		if(top == data.length - 1) {
+			StackFullException e = new StackFullException();
+			throw e;
+			//throw new StackFullException();
+		}
+		data[++top] = i;
 		
 	}
 
-	public int pop() {
-		int i = data[top];
-		top--;
+	public int pop() throws StackEmptyException {
+		if(top == -1) {
+			throw new StackEmptyException();
+		}
+		int i = data[top--];
+		//top--;
 		return i;
 		
 	}
 
-	public int top() {
+	public int top() throws StackEmptyException {
+		if(top == -1) {
+			throw new StackEmptyException();
+		}
 		return data[top];
 		
 	}
@@ -31,6 +41,10 @@ public class StackUsingArray {
 	public boolean isEmpty() {
 		return top == -1;
 		
+	}
+	
+	public int size() {
+		return top+1;
 	}
 	
 	
